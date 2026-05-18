@@ -1,0 +1,77 @@
+# 1. Open VirtualBox
+
+# 2. Configure Network for BOTH VMs
+# Settings -> Network
+# Attached to -> NAT Network
+# Select same NAT Network for both VMs
+# Click OK
+
+3. right click on both vms and go to settings then to network then attached to nat network and click on allow all for both vms
+
+
+
+# 4. Start vm1 and vm2
+
+# 5. Login in both VMs
+username: vagrant
+password: vagrant
+
+# 6. Check IP address in both VMs
+
+ifconfig
+
+# Example Output
+# vm1 -> 10.0.2.4
+# vm2 -> 10.0.2.5
+
+# NOTE:
+# Both VMs should have DIFFERENT IP addresses
+
+# 7. In vm1 create a file
+
+touch test.txt
+
+# 8. Check file content
+
+cat test.txt
+
+# 9. Open file using nano editor
+
+nano test.txt
+
+# 10. Write something inside file
+# Example:
+# Hello from vm1
+
+# 11. Save file
+# CTRL + O
+# Press ENTER
+
+# 12. Exit nano
+# CTRL + X
+
+# 13. Verify file content
+
+cat test.txt
+
+# 14. Transfer file from vm1 to vm2
+
+scp test.txt vagrant@10.0.2.5:/home/vagrant
+
+# 15. Enter password when prompted
+
+vagrant
+
+# 16. Go to vm2 terminal
+
+# 17. Check transferred file
+
+ls
+
+# 18. Open transferred file
+
+cat test.txt
+
+# 19. Expected Output
+
+Hello from vm1
